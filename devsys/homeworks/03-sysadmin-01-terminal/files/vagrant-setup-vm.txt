@@ -1,0 +1,54 @@
+gmelnikov@luna 03-sysadmin-01-terminal % mkdir vagrant
+cd vagrant
+
+cat > Vagrantfile << EOF
+Vagrant.configure("2") do |config|
+        config.vm.box = "bento/ubuntu-20.04"
+end
+EOF
+
+vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'bento/ubuntu-20.04'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'bento/ubuntu-20.04' version '202112.19.0' is up to date...
+==> default: Setting the name of the VM: vagrant_default_1641775900218_54959
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: 
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default: 
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+==> default: Mounting shared folders...
+    default: /vagrant => /Users/gmelnikov/wsp/devops-netology-notes/devsys/homeworks/03-sysadmin-01-terminal/vagrant
+gmelnikov@luna vagrant % vagrant ssh 
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-91-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon 10 Jan 2022 12:52:17 AM UTC
+
+  System load:  1.29               Processes:             123
+  Usage of /:   11.2% of 30.88GB   Users logged in:       0
+  Memory usage: 20%                IPv4 address for eth0: 10.0.2.15
+  Swap usage:   0%
+
+
+This system is built by the Bento project by Chef Software
+More information can be found at https://github.com/chef/bento
+vagrant@vagrant:~$ 
